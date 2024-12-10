@@ -38,6 +38,8 @@ def main():
     get_user_input()
     print()
 
+    # Calculating grade and points for each course
+    calculate_grade()
 
 def get_user_input():
 
@@ -60,8 +62,8 @@ def get_user_input():
         # Adding course to the courses list as a dict
         course = {
             "name": name,
-            "credits": credits,
-            "grade": grade
+            "credits": int(credits),
+            "grade": int(grade)
         }
 
         courses.append(course)
@@ -108,6 +110,58 @@ def validate_input(name, credits, grade):
 
     return True
 
+
+def calculate_grade():
+    # Point for each grade
+    points = {
+        "A"  : 4.00,
+        "B+" : 3.50,
+        "B"  : 3.00,
+        "C+" : 2.50,
+        "C"  : 2.00,
+        "D"  : 1.50,
+        "f"  : 0 
+    }
+
+    # Iterate over each course and adding grade letter and points
+    for course in courses:
+        # Skipping the calculation for courses that already have calculated
+        try:
+            if course["grade_letter"] and course["grade_letter"]:
+                print("skipping")
+                continue
+
+        except KeyError:
+            pass
+            
+
+        # Determine the grade letter
+        if course["grade"] <= 100 and course["grade"] >= 90:
+            course["grade_letter"] = "A"
+        
+        elif course["grade"] <= 89 and course["grade"] >= 82:
+            course["grade_letter"] = "B+"
+
+        elif course["grade"] <= 81 and course["grade"] >= 74:
+            course["grade_letter"] = "B"
+
+        elif course["grade"] <= 73 and course["grade"] >= 66:
+            course["grade_letter"] = "C+"
+
+        elif course["grade"] <= 65 and course["grade"] >= 58:
+            course["grade_letter"] = "C"
+
+        elif course["grade"] <= 57 and course["grade"] >= 50:
+            course["grade_letter"] = "D"
+
+        elif course["grade"] < 50:
+            course["grade_letter"] = "F"
+        
+        # Adding the points for the current course
+        key = course["grade_letter"]
+        course["points"] = course["credits"] * points[key]
+    
+    return
 
 
 def print_error(Error, message):
