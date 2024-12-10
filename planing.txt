@@ -13,3 +13,9 @@ GPA Scale
  2.99 – 2.33	Good
  2.32 – 2.00	Fair
  Below 2.00	    Fail
+
+Steps:-
+1- Get user input
+2- Validate the input
+3- Calculate the GPA
+4- Display the result
