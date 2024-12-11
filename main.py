@@ -41,6 +41,12 @@ def main():
     # Calculating grade and points for each course
     calculate_grade()
 
+    # Calculating GPA
+    calculate_GPA()
+
+    print(total_hours)
+    print(total_points)
+
 def get_user_input():
 
     while (True):
@@ -161,6 +167,28 @@ def calculate_grade():
         key = course["grade_letter"]
         course["points"] = course["credits"] * points[key]
     
+    return
+
+
+def calculate_GPA():
+    # Checking for an empty courses list
+    if len(courses) == 0:
+        print("No courses entered.")
+        return
+    
+    # Iterating over each course and adding points and hours
+    points = 0
+    hours = 0
+    for course in courses:
+        points += course["points"]
+        hours += course["credits"]
+    
+    # Updating the global points and hours
+    global total_points, total_hours
+
+    total_points = points
+    total_hours = hours
+
     return
 
 
