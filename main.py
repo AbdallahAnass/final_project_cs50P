@@ -42,10 +42,7 @@ def main():
     calculate_grade()
 
     # Calculating GPA
-    calculate_GPA()
-
-    print(total_hours)
-    print(total_points)
+    print(round(calculate_GPA(), 2))
 
 def get_user_input():
 
@@ -189,7 +186,7 @@ def calculate_GPA():
     total_points = points
     total_hours = hours
 
-    return
+    return total_points / total_hours
 
 
 def print_error(Error, message):
