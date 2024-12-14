@@ -1,3 +1,6 @@
+# Importing CSV library
+import csv
+
 # Initial values for the GPA
 total_points = 0
 total_hours = 0
@@ -187,6 +190,30 @@ def calculate_GPA():
     total_hours = hours
 
     return total_points / total_hours
+
+
+def read_csv():
+    # Taking file name from the user
+    gradesFile = input(r"Enter the name of the CSV file: ")
+
+    # Checking if the file exists
+    try:
+        with open(gradesFile, "r") as csvFile:
+            reader = csv.DictReader(csvFile)
+
+            for row in reader:
+                course = {
+                    "course": row["course"],
+                    "credits": int(row["credits"]),
+                    "grade": float(row["grade"])
+                }
+
+                courses.append(course)
+    except FileNotFoundError:
+        print(f"File '{gradesFile}' not found.")
+        return False
+    
+    return True
 
 
 def print_error(Error, message):
