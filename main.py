@@ -69,7 +69,7 @@ def get_user_input():
         course = {
             "name": name,
             "credits": int(credits),
-            "grade": int(grade)
+            "grade": float(grade)
         }
 
         courses.append(course)
@@ -139,7 +139,9 @@ def calculate_grade():
 
         except KeyError:
             pass
-            
+
+        # Make the grade to floor to avoid numbers with decimal points
+        course["grade"] = int(course["grade"])            
 
         # Determine the grade letter
         if course["grade"] <= 100 and course["grade"] >= 90:
