@@ -147,19 +147,19 @@ def calculate_grade():
         if course["grade"] <= 100 and course["grade"] >= 90:
             course["grade_letter"] = "A"
         
-        elif course["grade"] < 89 and course["grade"] >= 82:
+        elif course["grade"] <= 89 and course["grade"] >= 82:
             course["grade_letter"] = "B+"
 
-        elif course["grade"] < 82 and course["grade"] >= 74:
+        elif course["grade"] <= 81 and course["grade"] >= 74:
             course["grade_letter"] = "B"
 
-        elif course["grade"] < 74 and course["grade"] >= 66:
+        elif course["grade"] <= 73 and course["grade"] >= 66:
             course["grade_letter"] = "C+"
 
-        elif course["grade"] < 66 and course["grade"] >= 58:
+        elif course["grade"] <= 65 and course["grade"] >= 58:
             course["grade_letter"] = "C"
 
-        elif course["grade"] < 58 and course["grade"] >= 50:
+        elif course["grade"] <= 57 and course["grade"] >= 50:
             course["grade_letter"] = "D"
 
         elif course["grade"] < 50:
