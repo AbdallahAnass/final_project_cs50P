@@ -1,6 +1,9 @@
 # Importing CSV library
 import csv
 
+# Importing prettyTable library
+from prettytable import PrettyTable
+
 # Initial values for the GPA
 total_points = 0
 total_hours = 0
@@ -215,6 +218,28 @@ def read_csv():
         print(f"File '{gradesFile}' not found.")
         return False
     
+    return True
+
+
+def show_courses():
+    # If list is empty
+    if len(courses) == 0:
+        print("No courses entered.")
+        return False
+    
+    # Creating the pretty table object
+    table = PrettyTable()
+
+    # Adding fields names
+    table.field_names = courses[0].keys()
+
+    # print(courses[0].values())
+    # Adding each row
+    for course in courses:
+        table.add_row(course.values())
+
+    print(table)
+
     return True
 
 
