@@ -65,17 +65,11 @@ def get_user_input():
             break
 
         # Validating user input
-        if not validate_input(name, credits, grade):
+        if not validate_input(name, credits, grade):   
             continue
 
-        # Adding course to the courses list as a dict
-        course = {
-            "name": name,
-            "credits": int(credits),
-            "grade": float(grade)
-        }
-
-        courses.append(course)
+        # Adding the course to the courses list
+        add_course(name, credits, grade)
 
     return
 
@@ -118,6 +112,25 @@ def validate_input(name, credits, grade):
     
 
     return True
+
+
+def add_course(name, credits, grade):
+        # If course is already existing
+        for course in courses:
+            if course["name"] == name:
+                print(f"Course '{name}' already exists")
+                return
+            
+        # Adding course to the courses list as a dict
+        course = {
+            "name": name,
+            "credits": int(credits),
+            "grade": float(grade)
+        }
+
+        courses.append(course)
+
+        return
 
 
 def calculate_grade():
@@ -213,7 +226,7 @@ def read_csv():
                     "grade": float(row["grade"])
                 }
 
-                courses.append(course)
+                add_course(course["course"], course["credits"], course["grade"])
     except FileNotFoundError:
         print(f"File '{gradesFile}' not found.")
         return False
