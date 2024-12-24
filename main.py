@@ -37,20 +37,69 @@ class GradeError(Exception):
 def main():
     # Welcome Message
     print("Welcome to the GPA Calculator\n")
-    print("Enter the name, credit hours and the total grade in the course for each course")
-    print("Press ctrl + D to end and display the result\n")
+    print("This program calculates your GPA\n")
 
-    # Getting user input
-    get_user_input()
-    print()
+    while True:
 
-    # Calculating grade and points for each course
-    calculate_grade()
+        # Menu choices
+        print("\nPlease enter")
+        print("1 for manual courses input")
+        print("2 for input from a csv file")
+        print("3 to show table of courses")
+        print("4 to show the GPA")
+        print("5 to exit the program")
 
-    # Calculating GPA
-    print(round(calculate_GPA(), 2))
+        # Prompting the user for an option
+        choice = input("Please enter an option: ")
+        print("\n\n")
+
+        if choice == "1":
+
+            # Getting user input
+            get_user_input()
+            print()
+
+            # Calculating grade and points for each course
+            calculate_grade()
+
+            # Calculating GPA
+            print(f"Your GPA is ==>  {round(calculate_GPA(), 2)}")
+
+        elif choice == "2":
+            read_csv()
+
+            # Calculating grade and points for each course
+            calculate_grade()
+
+            # Calculating GPA
+            print(f"Your GPA is ==>  {round(calculate_GPA(), 2)}")
+        
+        elif choice == "3":
+            show_courses()
+        
+        elif choice == "4":
+            if len(courses) == 0:
+                print("No courses added yet. Please add courses first")
+                continue
+
+            # Calculating GPA
+            print(f"Your GPA is ==>  {round(calculate_GPA(), 2)}")
+
+        
+        elif choice == "5":
+            print("Exiting the program")
+            print("Thank you")
+            return
+        
+        else:
+            print("Invalid option, please try again\n")
+
 
 def get_user_input():
+
+    # Printing the instructions
+    print("\nEnter the name, credit hours and the total grade in the course for each course")
+    print("Press ctrl + D to end and display the result\n")
 
     while (True):
         try:
@@ -147,10 +196,10 @@ def calculate_grade():
 
     # Iterate over each course and adding grade letter and points
     for course in courses:
+        
         # Skipping the calculation for courses that already have calculated
         try:
             if course["grade_letter"] and course["grade_letter"]:
-                print("skipping")
                 continue
 
         except KeyError:
