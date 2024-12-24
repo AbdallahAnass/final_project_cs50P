@@ -120,7 +120,7 @@ def calculate_grade():
         "C+" : 2.50,
         "C"  : 2.00,
         "D"  : 1.50,
-        "f"  : 0 
+        "F"  : 0 
     }
 
     # Iterate over each course and adding grade letter and points
