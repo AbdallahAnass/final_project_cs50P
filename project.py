@@ -129,6 +129,7 @@ def validate_input(name, credits, grade):
     # Checking for a valid in range name
     if len(name) > 10 or len(name) <= 0:
         print_error(CourseNameError, message="outOfRange")
+        return False
 
     
     # Checking for a valid credit hours
@@ -168,7 +169,7 @@ def add_course(name, credits, grade):
         for course in courses:
             if course["name"] == name:
                 print(f"Course '{name}' already exists")
-                return
+                return False
             
         # Adding course to the courses list as a dict
         course = {
@@ -179,7 +180,7 @@ def add_course(name, credits, grade):
 
         courses.append(course)
 
-        return
+        return True
 
 
 def calculate_grade():
@@ -193,6 +194,10 @@ def calculate_grade():
         "D"  : 1.50,
         "F"  : 0 
     }
+
+    # If there is no courses
+    if len(courses) == 0:
+        return False
 
     # Iterate over each course and adding grade letter and points
     for course in courses:
@@ -234,14 +239,14 @@ def calculate_grade():
         key = course["grade_letter"]
         course["points"] = course["credits"] * points[key]
     
-    return
+    return True
 
 
 def calculate_GPA():
     # Checking for an empty courses list
     if len(courses) == 0:
         print("No courses entered.")
-        return
+        return 0
     
     # Iterating over each course and adding points and hours
     points = 0
