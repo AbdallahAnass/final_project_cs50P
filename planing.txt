@@ -6,16 +6,8 @@ Grade Scale
  C	-> 2.00
  D	-> 1.50
  F  -> 0
-
-GPA Scale
- 4.00 – 3.67	Excellent
- 3.66 – 3.00	Very Good
- 2.99 – 2.33	Good
- 2.32 – 2.00	Fair
- Below 2.00	    Fail
-
-
- Grade Letters
+ 
+Grade Letters
 A	100 – 90 4.00
 B+	89 – 82	 3.50
 B	81 – 74	 3.00
