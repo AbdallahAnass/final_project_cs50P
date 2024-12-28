@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Importing CSV library
 import csv
 

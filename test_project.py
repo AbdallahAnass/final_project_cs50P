@@ -1,4 +1,3 @@
-import pytest
 import project
 
 def test_validate_input():
