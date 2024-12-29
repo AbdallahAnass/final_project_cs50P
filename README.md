@@ -1,6 +1,6 @@
 # GPA Calculator
 
-    #### Video Demo:  <URL HERE>
+    #### Video Demo:  <https://youtu.be/LTSGe90CNH0>
     #### Description:
 
 ### Academic GPA Calculator
