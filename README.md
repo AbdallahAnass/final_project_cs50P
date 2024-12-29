@@ -1,7 +1,8 @@
 # GPA Calculator
 
-    #### Video Demo:  <https://youtu.be/LTSGe90CNH0>
-    #### Description:
+#### Video Demo: <https://youtu.be/LTSGe90CNH0>
+
+#### Description:
 
 ### Academic GPA Calculator
 
